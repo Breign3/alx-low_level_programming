@@ -1,39 +1,29 @@
 #include "main.h"
 #include <stdlib.h>
 /**
- * str_concat - get ends of input and add together for size
- * @s1: input one to concat
- * @s2: input two to concat
- * Return: concat of s1 and s2
+ * _strdup - return a pointer to newly allocatedspace memory.
+ * @str: string
+ *
+ * Return: pointer of an array of chars
  */
-char *string_nconcat(char *s1, char *s2, unsigned int n)
+char *_strdup(char *str)
 {
-	char *str;
-	unsigned int i, a, b;
+	char *strout;
+	unsigned int i, j;
 
-	a = b = 0;
-	if (s1)
-	for (; s1[a]; a++)
-	;
-		if (s2)
-		for (; s2[b]; b++)
-	;
-			if (!(n >= b))
-			b = n;
+	if (str == NULL)
+		return (NULL);
 
-		str = malloc(sizeof(char) * (a + b) + 1);
-			if (!str)
-			return (NULL);
+	for (i = 0; str[i] != '\0'; i++)
+		;
 
-				for (i = 0; i < (a + b); i++)
-					{
-					if (i < a)
-						str[i] = s1[i];
-							else
-								str[i] = s2[i - a];
-					}
+	strout = (char *)malloc(sizeof(char) * (i + 1));
 
-								str[i] = '\0';
+	if (strout == NULL)
+		return (NULL);
 
-		return (str);
+	for (j = 0; j <= i; j++)
+		strout[j] = str[j];
+
+	return (strout);
 }
