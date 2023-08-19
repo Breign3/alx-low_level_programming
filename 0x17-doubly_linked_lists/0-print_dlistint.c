@@ -9,16 +9,14 @@
 
 size_t print_dlistint(const dlistint_t *h)
 {
-	const dlistint_t *ptr = h;
-	size_t n = 0;
+	size_t count = 0;
 
-	while (ptr && ptr->prev)
-		ptr = ptr->prev;
-	while (ptr)
+	/* while we have a pointer to the list */
+	while (h != NULL)
 	{
-		printf("%d\n", ptr->n);
-		n++;
-		ptr = ptr->next;
+		printf("%d\n", h->n);
+		count++;
+		h = h->next;
 	}
-	return (n);
+	return (count);
 }
